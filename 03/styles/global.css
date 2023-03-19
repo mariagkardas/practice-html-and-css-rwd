@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    display: grid;
+}
+
 .p, .t, .v {
     border: 3px solid transparent;
     min-height: 50px;
@@ -14,13 +18,48 @@
 }
 
 .p {
-    border-color: #ffffba
+    border-color: #ffffba;
+    order: 1;
 }
 
 .t {
     border-color: #ffdfba;
+    order: 2;
 }
 
 .v {
     border-color: #baffc9;
+    order: 3;
+}
+
+@media screen and (min-width: 600px) {
+    body {
+        grid-template-areas:
+        "area-p area-t"
+        "area-v area-t";
+        grid-template-columns: minmax(200px, 50vw)
+    }
+
+    .p {
+        grid-area: area-p;
+    }
+    
+    .t {
+        grid-area: area-t;
+    }
+    
+    .v {
+        grid-area: area-v;
+    }
+    
+}
+
+@media screen and (min-width: 1200px) {
+    body {
+        max-width: 1400px;
+        grid-template-columns: minmax(auto, 700px) minmax(auto, 700px);
+        grid-template-areas:
+        "area-p area-v"
+        "area-t area-t";
+    }
 }
