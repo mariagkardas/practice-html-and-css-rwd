@@ -8,6 +8,18 @@ body {
     display: grid;
 }
 
+img {
+    max-width: 100%;
+}
+
+iframe {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
 .p, .t, .v {
     border: 3px solid transparent;
     min-height: 50px;
@@ -20,6 +32,7 @@ body {
 .p {
     border-color: #ffffba;
     order: 1;
+    line-height: 0;
 }
 
 .t {
@@ -30,6 +43,11 @@ body {
 .v {
     border-color: #baffc9;
     order: 3;
+
+    height: 0;
+    padding-bottom: calc(315 / 560 * 100%);
+    position: relative;
+    width: 100%;
 }
 
 @media screen and (min-width: 600px) {
@@ -37,7 +55,7 @@ body {
         grid-template-areas:
         "area-p area-t"
         "area-v area-t";
-        grid-template-columns: minmax(200px, 50vw)
+        grid-template-columns: minmax(200px, 50vw) auto;
     }
 
     .p {
@@ -56,10 +74,11 @@ body {
 
 @media screen and (min-width: 1200px) {
     body {
+        margin: 0 auto;
         max-width: 1400px;
-        grid-template-columns: minmax(auto, 700px) minmax(auto, 700px);
         grid-template-areas:
         "area-p area-v"
         "area-t area-t";
     }
+
 }
